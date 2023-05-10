@@ -19,6 +19,18 @@
     "noImplicitAny": true,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */                            /* Ensure 'use strict' is always emitted. */
     "noUnusedLocals": false,                           /* Enable error reporting when local variables aren't read. */
     "noUnusedParameters": false,                       /* Raise an error when a function parameter isn't read. */                     /* Skip type checking .d.ts files that are included with TypeScript. */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true,
+    "plugins": [
+      {
+      "transform": "typescript-transform-paths"
+      },
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true
+      }
+    ],
+    "paths": {
+      "@/*": ["src/*"]
+    }                                /* Skip type checking all .d.ts files. */
   }
 }

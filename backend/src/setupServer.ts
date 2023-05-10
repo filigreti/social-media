@@ -14,13 +14,13 @@ import cookieSession from 'cookie-session';
 import compression from 'compression';
 import HTTP_STATUS from 'http-status-codes';
 import 'express-async-errors';
-import { config } from './config';
+import { config } from '@/config';
 import { Server } from 'socket.io';
 import { createClient } from 'redis';
 import { createAdapter } from '@socket.io/redis-adapter';
-import AppRoutes from './routes';
-import { CustomError, IError } from './shared/globals/helpers/error-handler';
+import AppRoutes from '@/routes';
 import Logger from 'bunyan';
+import { IError, CustomError } from '@/shared/globals/helpers/error-handler';
 
 const SERVER_PORT = 5700;
 const log: Logger = config.createLogger('server');
@@ -122,5 +122,7 @@ export class AppServer {
     });
   }
 
-  private socketIOConnections(io: Server): void {}
+  private socketIOConnections(io: Server): void {
+    log.info('SocketIO connections');
+  }
 }
